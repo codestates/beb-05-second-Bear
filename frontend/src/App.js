@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes} from 'react-router-dom'
+import LoginPage from './pages/LoginPage';
+import MainPage from './pages/MainPage';
+import MyPage from './pages/MyPage';
+import NFTMinting from './pages/NFTMinting';
+import PostDetail from './pages/PostDetail';
+import Register from './pages/Register';
+import WritePost from './pages/WritePost';
+import Footer from './components/footer';
+import Header from './components/Header';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="mypage" element={<MyPage />} />
+        <Route path="NFTminting" element={<NFTMinting />} />
+        <Route path="postDetail" element={<PostDetail />} />
+        <Route path="register" element={<Register />} />
+        <Route path="writePost" element={<WritePost />} />
+      </Routes>
+      <br></br>
+      <br></br>
+      <Footer />
     </div>
   );
 }

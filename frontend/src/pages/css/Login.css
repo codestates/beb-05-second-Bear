@@ -1,0 +1,46 @@
+.loginContainer {
+  width: 400px;
+  background-color: aqua;
+  text-align: center;
+  margin : 0 auto;
+}
+
+.login {
+  /* position: absolute;
+width: 1050px;
+height: 38px;
+left: 435px;
+top: 120px; */
+
+font-family: 'Song Myung';
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+line-height: 38px;
+/* identical to box height */
+
+text-align: center;
+
+color: #000000;
+
+}
+
+.label {
+  width: 42px;
+height: 19px;
+
+font-family: 'Pretendard';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}

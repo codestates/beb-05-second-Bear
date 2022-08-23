@@ -1,5 +1,3 @@
-import './css/PostItem.css'
-
 const PostItem = ({ article }) => {
   const { tokenId, name, imageUrl } = article;
   return (

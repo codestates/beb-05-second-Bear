@@ -35,17 +35,105 @@ export default class MongoDB {
         })
     }
 
-    insertData() {
+    insertData(id, userid, password, nickname, account, token_amount, eth_amoint, today, user_state) {
         const _conn = new this.conn({
-            id: '1',
-            userid: '1',
-            password: '1',
-            nickname: '1'
+            id: id,
+            userid: userid,
+            password: password,
+            nickname: nickname,
+            address: account.address,
+            privateKey: account.privateKey,
+            token_amount: token_amount,
+            eth_amoint: eth_amoint,
+            created_at: today,
+            user_state: user_state
+
         })
 
         _conn.save().then(() => {
             console.log('Insert Data!')
         })
+    }
+
+    updateData(i, eth) {
+        this.conn.updateOne({ id: i }, { $set: { eth_amoint: eth } }).then(() => console.log("Update Data"))
+    }
+
+    onelist(id) {
+        return new Promise(resolve => {
+            this.conn.find({ 'id': id }, (err, users) => {
+                if (err) {
+                    throw new Error(`getAllList Error: ${err}`);
+                }
+
+                resolve(users);
+
+            })
+        })
+
+    }
+
+    lastList() {
+        return new Promise(resolve => {
+            this.conn.find({}, 'id', (err, userID) => {
+                if (err) {
+                    throw new Error(`getAllList Error: ${err}`);
+                }
+
+                resolve(userID);
+
+            }).sort({
+                id: -1
+            }).limit(1)
+        })
+
+    }
+
+    id_password_check(userid, password) {
+        return new Promise(resolve => {
+            this.conn.find({ 'userid': userid, 'password': password }, (err, users) => {
+                if (err) {
+                    throw new Error(`getAllList Error: ${err}`);
+                }
+
+                resolve(users);
+
+            })
+        })
+
+    }
+
+    insertPost(id, userid, nickname, title, text, created_at, update_at, post_state, views) {
+        const _conn = new this.conn({
+            id: id,
+            userid: userid,
+            nickname: nickname,
+            title: title,
+            text: text,
+            created_at: created_at,
+            update_at: update_at,
+            post_state: post_state,
+            views: views
+
+        })
+
+        _conn.save().then(() => {
+            console.log('Insert Data!')
+        })
+    }
+
+    userid_search(userid) {
+        return new Promise(resolve => {
+            this.conn.find({ 'userid': userid }, (err, users) => {
+                if (err) {
+                    throw new Error(`getAllList Error: ${err}`);
+                }
+
+                resolve(users);
+
+            })
+        })
+
     }
 
 }

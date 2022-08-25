@@ -1,5 +1,6 @@
-import Defs from './constants/constants'
-import MongoDB from './models/models'
+const Defs = require('./constants/constants');
+const MongoDB = require('./models/models');
+
 MongoDB.initializeCollection();
 const express = require('express');
 const dotenv = require('dotenv')
@@ -10,10 +11,12 @@ const port = 5000;
 const app = express();
 const bodyParser = require('body-parser');
 const Web3 = require('web3');
-
+const cors = require("cors");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
+app.use(express.json());
 
 // hexcode
 // const a = 200000000000000000; 0.2 -> 200000000000000000
@@ -160,7 +163,7 @@ app.listen(port, () => {
 
 //git clone -b dev --single-branch 
 //git branch --dev
-//git romote -v -- origin
+//git remote -v -- origin
 //git add .
 //git commit -m "dasdasd"
 //git push origin dev

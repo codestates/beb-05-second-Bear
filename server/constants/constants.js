@@ -1,4 +1,4 @@
-export default class Defs {
+module.exports = class Defs {
     // DB
     static URL_DB = 'mongodb+srv://jongdae94:rlarnltjs1@cluster0.vtr5yee.mongodb.net/?retryWrites=true&w=majority' // .env need change 어떻게 해야할까..
 

@@ -1,7 +1,7 @@
-import mongoose from 'mongoose'
-import Defs from '../constants/constants'
+const mongoose = require('mongoose');
+const Defs = require('../constants/constants');
 
-export default class MongoDB {
+module.exports = class MongoDB {
     constructor(target) {
         this.conn = mongoose.model(target);
     }

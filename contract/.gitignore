@@ -1,0 +1,8 @@
+# npm 
+node_modules
+
+# 환경 변수
+.env
+
+#빌드 파일
+build
